@@ -2,25 +2,30 @@ import Card from "@/components/Card";
 import { useState, useEffect } from "react";
 import Cards from "@/components/Card/Cards";
 
-export default function Home({ blogs }) {
+export default function Home() {
+  const [blogs, setBlogs] = useState([]);
+  const [recentblogs, setRecentBlogs] = useState([]);
   const [pages, setPages] = useState(9);
+  useEffect(() => {
+    fetchData();
+    fetchRecentData();
+  }, [pages]);
 
-  // const fetchData = async () => {
-  //   const res = await fetch(`https://dev.to/api/articles?per_page=${pages}`);
-  //   const data = await res.json();
-  //   setBlogs(data);
+  const fetchData = async () => {
+    const res = await fetch(`https://dev.to/api/articles?per_page=${pages}`);
+    const data = await res.json();
+    setBlogs(data);
+  };
 
-  // };
-
-  // const fetchRecentData = async () => {
-  //   const res1 = await fetch("https://dev.to/api/articles/latest?per_page=4");
-  //   const data1 = await res1.json();
-  //   setRecentBlogs(data1);
-  // };
+  const fetchRecentData = async () => {
+    const res1 = await fetch("https://dev.to/api/articles/latest?per_page=4");
+    const data1 = await res1.json();
+    setRecentBlogs(data1);
+  };
   console.log(recentblogs);
   const handleNext = () => {
     console.log("daraagiin huudas darlaa");
-    // setPages(pages + 3);
+    setPages(pages + 3);
   };
   return (
     <main className={`flex min-h-screen flex-col items-center mx-auto p-24`}>
@@ -47,14 +52,4 @@ export default function Home({ blogs }) {
       </div>
     </main>
   );
-}
-
-export async function getStaticProps() {
-  const res = await fetch(`https://dev.to/api/articles?per_page=9`);
-  const blogs = await res.json();
-  return {
-    props: {
-      blogs,
-    },
-  };
 }
