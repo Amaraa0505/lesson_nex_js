@@ -38,13 +38,13 @@ export default function Home() {
         <h1 className="text-2xl my-[10px]">All Blog Post</h1>
         <div className="grid grid-cols-3">
           {blogs.map((blog, i) => (
-            <Card key={i} blog={blog} />
+            <Card blog={blog} />
           ))}
         </div>
         <div className="justify-center flex">
           <button
             onClick={handleNext}
-            className="bg-green-400 border-2 h-8 w-32 hover:bg-green-600 "
+            className="bg-purple-600 border-2 h-8 w-32 hover:bg-purple-800 m-5 rounded-xl"
           >
             Load More
           </button>
