@@ -51,14 +51,15 @@ const Blog = () => {
     </div>
   );
 };
-export async function getStaticProps() {
-  const res1 = await fetch(
-    `https://dev.to/api/articles/latest?per_page=${pages}`
-  );
-  const blogs = await res1.json();
-  return {
-    props: {
-      blogs,
-    },
-  };
-}
+export default Blog;
+// export async function getStaticProps() {
+//   const res1 = await fetch(
+//     `https://dev.to/api/articles/latest?per_page=${pages}`
+//   );
+//   const blogs = await res1.json();
+//   return {
+//     props: {
+//       blogs,
+//     },
+//   };
+// }
