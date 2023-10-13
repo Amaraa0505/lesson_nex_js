@@ -37,21 +37,7 @@ export default function Home({ blogs, recentblogs }) {
   );
 }
 
-// export async function getServerSideProps() {
-//   const res = await fetch(`https://dev.to/api/articles?per_page=9`);
-//   const blogs = await res.json();
-//   const res1 = await fetch("https://dev.to/api/articles/latest?per_page=4");
-//   const recentblogs = await res1.json();
-//   return {
-//     props: {
-//       blogs,
-//       recentblogs,
-//     },
-//     revalidate: 10, //second
-//   };
-// }
-
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(`https://dev.to/api/articles?per_page=9`);
   const blogs = await res.json();
   const res1 = await fetch("https://dev.to/api/articles/latest?per_page=4");
@@ -64,3 +50,17 @@ export async function getStaticProps() {
     revalidate: 10, //second
   };
 }
+
+// export async function getStaticProps() {
+//   const res = await fetch(`https://dev.to/api/articles?per_page=9`);
+//   const blogs = await res.json();
+//   const res1 = await fetch("https://dev.to/api/articles/latest?per_page=4");
+//   const recentblogs = await res1.json();
+//   return {
+//     props: {
+//       blogs,
+//       recentblogs,
+//     },
+//     revalidate: 10, //second
+//   };
+// }
