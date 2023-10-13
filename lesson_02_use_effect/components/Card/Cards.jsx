@@ -3,10 +3,10 @@ import Link from "next/link";
 
 const Cards = ({ bigCard, midCard, smallCards }) => {
   return (
-    <div className="mx-auto  ">
+    <div className="mx-auto  md:grid-cols-1  lg:grid-cols-2">
       <div className="flex">
         <Link href={"/detail/" + midCard?.id}>
-          <div className="flex-1">
+          <div className="grid-1">
             <div className=" ">
               <img src={midCard?.social_image} className="w-96" />
             </div>
@@ -16,7 +16,7 @@ const Cards = ({ bigCard, midCard, smallCards }) => {
             </div>
           </div>
         </Link>
-        <div className=" flex-1">
+        <div className=" grid-1">
           <div className="">
             {smallCards.map((smallcard, i) => (
               <Link href={"/detail/" + smallCards?.id}>

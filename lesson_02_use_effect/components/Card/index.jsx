@@ -3,8 +3,8 @@ import React from "react";
 
 const Card = ({ blog }) => {
   return (
-    <Link href={"/detail/" + blog.id}>
-      <div className="border flex-col">
+    <Link href={"/detail/" + blog.id} className="">
+      <div className="border flex-col  ">
         <img
           src={
             blog.cover_image

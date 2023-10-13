@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { formatDate } from "@/utils/functions";
 
-const BlogDetail = () => {
+const BlogDetail = ({ article }) => {
   const router = useRouter();
   const { id } = router.query;
 
@@ -61,3 +61,21 @@ const BlogDetail = () => {
 };
 
 export default BlogDetail;
+// export async function getStaticProps(context) {
+//   const { id } = context.params;
+//   const res = await fetch(`https://www.dev.to/api/articles/${id}`);
+//   const blogs = await res.json();
+//   return {
+//     props: { article },
+//   };
+// }
+// export async function getStaticPaths() {
+//   const res = await fetch(`https://www.dev.to/api/articles/${id}`);
+//   const blogs = await res.json();
+//   const ids = articles.map((article) => article.id);
+//   const paths = ids.map((id) => ({ params: { id: id.toString() } }));
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }

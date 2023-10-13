@@ -19,12 +19,12 @@ const Blog = () => {
     setPages(pages + 3);
   };
   return (
-    <div>
+    <div className="">
       <h1>all blog post</h1>
-      <div className="grid grid-cols-3">
+      <div className="md:grid md:grid-cols-2 lg:grid-cols-3 ">
         {blogs.map((blog, i) => (
           <Link href={"/detail/" + blog.id}>
-            <div className="border flex flex-col">
+            <div className="border flex flex-col  ">
               <img src={blog.cover_image} className="" />
               <div>
                 <span>{blog?.type_of}</span>

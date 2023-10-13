@@ -28,7 +28,7 @@ export default function Home() {
     setPages(pages + 3);
   };
   return (
-    <main className={`flex min-h-screen flex-col items-center mx-auto p-24`}>
+    <div className={`flex min-h-screen flex-col items-center mx-auto p-24 `}>
       <Cards
         midCard={recentblogs[0]}
         bigCard={recentblogs[1]}
@@ -36,7 +36,7 @@ export default function Home() {
       />
       <div>
         <h1 className="text-2xl my-[10px]">All Blog Post</h1>
-        <div className="grid grid-cols-3">
+        <div className="md:grid md:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog, i) => (
             <Card blog={blog} />
           ))}
@@ -50,6 +50,6 @@ export default function Home() {
           </button>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
