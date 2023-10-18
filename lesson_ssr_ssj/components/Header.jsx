@@ -1,6 +1,7 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ setSearchTitle }) => {
+  const isActive = usePathname();
   return (
     <div className="m-20 mx-auto w-[800px] ">
       <div className="flex justify-between ">
@@ -15,8 +16,11 @@ const Header = () => {
         <input
           type="text"
           placeholder="Search"
-          className="p-4 border-2 rounded-xl"
-        ></input>
+          className="p-4"
+          onChange={(e) => {
+            setSearchTitle(e.target.value);
+          }}
+        />
       </div>
       <hr className="my-4 "></hr>
     </div>
